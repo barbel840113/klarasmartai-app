@@ -1,0 +1,43 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+}
+
+a.mat-list-item{
+  color:rgba(255,255,255,.7);
+}
+
+.sidenav{
+  background-color: #262f3d;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+mat-toolbar.mat-toolbar.mat-primary.mat-toolbar-single-row {
+  background-color: #262f3d;
+  color:#fff;
+}
+
+.mat-toolbar-row, .mat-toolbar-single-row {
+  height: 64px;
+  background-color: #014972;
+  color: rgba(255,255,255,.7);
+}
+
+@media only screen and (min-width: 1000px)
+{
+  .sidenav {
+    width: 350px;
+  }
+}
+
+
+
+
+
