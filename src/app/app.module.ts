@@ -11,6 +11,11 @@ import { MatGridListModule, MatCardModule, MatMenuModule, MatIconModule, MatButt
 import { LayoutModule } from '@angular/cdk/layout';
 import { AppNavigationComponent } from './app-navigation/app-navigation.component';
 import { AppCustomDataComponent } from './app-custom-data/app-custom-data.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { AppEffects } from './app.effects';
+import { WorkerAppModule } from '@angular/platform-webworker';
 
 @NgModule({
   declarations: [
@@ -31,11 +36,14 @@ import { AppCustomDataComponent } from './app-custom-data/app-custom-data.compon
     MatButtonModule,
     LayoutModule,
     MatToolbarModule,
+    WorkerAppModule,
     MatSidenavModule,
     MatListModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    StoreModule.forRoot(reducers, { metaReducers }),
+    EffectsModule.forRoot([AppEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]
