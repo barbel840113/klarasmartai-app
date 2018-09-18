@@ -16,7 +16,7 @@ import { reducers, metaReducers } from './reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects';
 import { WorkerAppModule } from '@angular/platform-webworker';
-
+import { WorkerService } from './services/worker-service.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +36,6 @@ import { WorkerAppModule } from '@angular/platform-webworker';
     MatButtonModule,
     LayoutModule,
     MatToolbarModule,
-    WorkerAppModule,
     MatSidenavModule,
     MatListModule,
     MatTableModule,
@@ -45,7 +44,7 @@ import { WorkerAppModule } from '@angular/platform-webworker';
     StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot([AppEffects])
   ],
-  providers: [],
+  providers: [WorkerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
