@@ -14,9 +14,11 @@ import { AppCustomDataComponent } from './app-custom-data/app-custom-data.compon
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
 import { EffectsModule } from '@ngrx/effects';
-import { AppEffects } from './app.effects';
+import { AppEffects } from './effects/app.effects';
 import { WorkerAppModule } from '@angular/platform-webworker';
 import { WorkerService } from './services/worker-service.service';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +44,10 @@ import { WorkerService } from './services/worker-service.service';
     MatPaginatorModule,
     MatSortModule,
     StoreModule.forRoot(reducers, { metaReducers }),
-    EffectsModule.forRoot([AppEffects])
+    EffectsModule.forRoot([AppEffects]),
+    StoreDevtoolsModule.instrument({
+      maxAge: 5      
+    })
   ],
   providers: [WorkerService],
   bootstrap: [AppComponent]

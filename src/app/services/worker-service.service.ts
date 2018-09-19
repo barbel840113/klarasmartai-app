@@ -23,7 +23,7 @@ export class WorkerService {
   constructor() {
     this.webWorker = new Worker('/assets/scripts/web-worker.js');
     this.onmessage(this.tempObject);    
-    //this.requestResultSubcription$ = new BehaviorSubject<any>([]);
+    this.requestResultSubcription$ = new BehaviorSubject<any>([]);
   }
 
   /**
@@ -39,6 +39,7 @@ export class WorkerService {
     this.webWorker.onmessage = function (data: any) {
       this.requestResult = data.data.result;
       console.warn(this.requestResult);
+      this.requestResultSubcription$.next(true);
     }.bind(this);
   }
 

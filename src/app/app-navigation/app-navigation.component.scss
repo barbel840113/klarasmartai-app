@@ -18,6 +18,10 @@ a.mat-list-item{
 .example-spacer {
   flex: 1 1 auto;
 }
+#InformationListStyle{
+  border: 1px solid #404854;
+  height: 56px;
+}
 
 mat-toolbar.mat-toolbar.mat-primary.mat-toolbar-single-row {
   background-color: #262f3d;
@@ -34,6 +38,11 @@ mat-toolbar.mat-toolbar.mat-primary.mat-toolbar-single-row {
 {
   .sidenav {
     width: 350px;
+  }
+
+  #InformationListStyle{
+    border-bottom: 1px solid #404854;
+    height: 56px;
   }
 }
 

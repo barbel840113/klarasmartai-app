@@ -133,5 +133,8 @@
       }
     }
   },
-  "defaultProject": "klarasmartai-app"
+  "defaultProject": "klarasmartai-app",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }

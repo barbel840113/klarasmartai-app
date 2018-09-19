@@ -3,9 +3,9 @@
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
     <mat-toolbar color="primary">KlaraSmartAI</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#">Information</a>
-      <a mat-list-item href="#">Create Network</a>
-      <a mat-list-item href="#">About</a>
+      <a mat-list-item id="InformationListStyle" href="#">Information</a>
+      <a mat-list-item id="InformationListStyle" href="#">Create Network</a>
+      <a mat-list-item id="InformationListStyle" href="#">About</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -17,28 +17,28 @@
         <span>klarasmartai-app</span>
         <span>Third Line</span>
         <span class="example-spacer"></span>
-     
+
         <mat-icon class="example-icon">favorite</mat-icon>
         <mat-icon class="example-icon">delete</mat-icon>
 
         <!-- Menu -->
         <button mat-icon-button [matMenuTriggerFor]="menu">
-            <mat-icon>more_vert</mat-icon>
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <mat-icon>dialpad</mat-icon>
+            <span>Redial</span>
           </button>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item>
-              <mat-icon>dialpad</mat-icon>
-              <span>Redial</span>
-            </button>
-            <button mat-menu-item disabled>
-              <mat-icon>voicemail</mat-icon>
-              <span>Check voicemail</span>
-            </button>
-            <button mat-menu-item>
-              <mat-icon>notifications_off</mat-icon>
-              <span>Disable alerts</span>
-            </button>
-          </mat-menu>
+          <button mat-menu-item disabled>
+            <mat-icon>voicemail</mat-icon>
+            <span>Check voicemail</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>notifications_off</mat-icon>
+            <span>Disable alerts</span>
+          </button>
+        </mat-menu>
       </mat-toolbar-row>
     </mat-toolbar>
     <!-- Add Content Here -->
