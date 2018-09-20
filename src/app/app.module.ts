@@ -18,11 +18,14 @@ import { AppEffects } from './effects/app.effects';
 import { WorkerAppModule } from '@angular/platform-webworker';
 import { WorkerService } from './services/worker-service.service';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { MainAppModule } from './main-app/main-app.module';
+import { AuthGuard } from './guards/auth.guard';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AppDashboardComponent,
+    //AppDashboardComponent,
     AppNavigationComponent,
     AppCustomDataComponent
   ],
@@ -49,7 +52,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
       maxAge: 5      
     })
   ],
-  providers: [WorkerService],
+  providers: [WorkerService, AuthGuard, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
