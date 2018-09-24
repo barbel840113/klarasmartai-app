@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointState, BreakpointObserver } from '@angular/cdk/layout';
+import { FormControl, Validators } from '@angular/forms';
 
 export interface Tile {
   color: string;
@@ -19,6 +20,17 @@ export class LoginComponent implements OnInit {
   /**
    * 
    */
+  cards: any;
+  /**
+   * 
+   */
+  username: string;
+
+  /**
+   * Password
+   */
+  password: string;
+  email = new FormControl('', [Validators.required, Validators.email]);
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {
       if (matches) {
@@ -32,24 +44,18 @@ export class LoginComponent implements OnInit {
     })
   );
 
-  /**
-   * 
-   */
-  username: string;
-
-  /**
-   * Password
-   */
-  password: string;
-
   constructor(private breakpointObserver: BreakpointObserver) {
-
-
   }
 
   public tiles: Tile[] = [
     { cols: 2, rows: 2, color: 'lightpink' },
   ];
+
+  getErrorMessage() {
+    return this.email.hasError('required') ? 'You must enter a value' :
+      this.email.hasError('email') ? 'Not a valid email' :
+        '';
+  }
 
   ngOnInit() {
   }

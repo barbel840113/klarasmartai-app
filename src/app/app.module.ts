@@ -21,7 +21,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { MainAppModule } from './main-app/main-app.module';
 import { AuthGuard } from './guards/auth.guard';
 import { UserService } from './services/user.service';
-
+import {FlexLayoutModule} from '@angular/flex-layout';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +40,7 @@ import { UserService } from './services/user.service';
     MatIconModule,
     MatButtonModule,
     LayoutModule,
+    FlexLayoutModule,
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
